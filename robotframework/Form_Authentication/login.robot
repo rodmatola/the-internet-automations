@@ -1,11 +1,15 @@
 *** Settings ***
 Documentation   	Automação da tela de login.
-...  Reparem que não segue as boas práticas, pois o cenário de logout depende do login
+...  Cenários:
+...  login válido
+...  logout
+...  usuário inválido
+...  senha inválida
 
 Library   	SeleniumLibrary
 
-Suite Setup     Dado que estou na tela de login
-Suite Teardown  Close browser
+Test Setup     Dado que estou na tela de login
+Test Teardown  Close browser
 
 
 *** Variables ***
@@ -27,6 +31,7 @@ Cenário: login válido
 
 Cenário: logout
     [Tags]  logout
+    E logado no sistema
     Quando realizo o logout
     Então devo visualizar a mensagem "You logged out of the secure area!"
 
@@ -60,6 +65,9 @@ Então devo visualizar a mensagem "${mensagem}"
 
 
 Cenário: logout
+E logado no sistema
+    Quando realizo o login com usuário e senha válidos
+
 Quando realizo o logout
     Click element  ${logout_button}
 
