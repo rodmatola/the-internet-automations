@@ -72,7 +72,7 @@ Quando realizo o logout
     Click element  ${logout_button}
 
 
-Cenários inváridos
+Cenários inválidos
 Quando realizo o login com usuário inválido
     Input Text      ${username_field}   ${username}s
 	Input Password  ${password_field}  	${password}
