@@ -1,0 +1,3 @@
+*** Variables ***
+${browser}   	    Chrome
+${url}              https://the-internet.herokuapp.com/

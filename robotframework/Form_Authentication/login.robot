@@ -8,13 +8,14 @@ Documentation   	Automação da tela de login.
 
 Library   	SeleniumLibrary
 
+Resource  ../resources/variables.robot
+
 Test Setup     Dado que estou na tela de login
 Test Teardown  Close browser
 
 
 *** Variables ***
-${browser}   	    Chrome
-${url}              https://the-internet.herokuapp.com/login
+${page}             login
 ${username_field}   id = username
 ${password_field}   id = password
 ${username}   	    tomsmith
@@ -51,7 +52,7 @@ Cenário: senha inválida
 *** Keywords ***
 Cenário: login válido
 Dado que estou na tela de login
-    Open browser    ${url}  ${browser}
+    Open browser    ${url}${page}  ${browser}
 
 
 Quando realizo o login com usuário e senha válidos
@@ -72,7 +73,7 @@ Quando realizo o logout
     Click element  ${logout_button}
 
 
-Cenários inváridos
+Cenários inválidos
 Quando realizo o login com usuário inválido
     Input Text      ${username_field}   ${username}s
 	Input Password  ${password_field}  	${password}

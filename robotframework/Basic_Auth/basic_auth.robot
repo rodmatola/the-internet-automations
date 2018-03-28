@@ -3,11 +3,11 @@ Documentation   	Login através de um popup.
 
 Library   	SeleniumLibrary
 
-#Suite Teardown  Close browser
+Resource  ../resources/variables.robot
+Suite Teardown  Close browser
 
 
 *** Variables ***
-${browser}   	    Chrome
 ${url}              https://admin:admin@the-internet.herokuapp.com/basic_auth
 
 

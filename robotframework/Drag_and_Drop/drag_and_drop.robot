@@ -5,12 +5,11 @@ Documentation  Automação para arrastar uma caixa de um local a outro da tela.
 Library  SeleniumLibrary
 
 *** Variables ***
-${browser}  Chrome
-${url}      https://the-internet.herokuapp.com/drag_and_drop
-${caixaA}   css=#column-a  #id=column-a
-${caixaB}   css=#column-b  #id=column-b
-${caixa_esquerda}  css=#column-a > header
-${caixa_direita}   css=#column-b > header
+${page}             drag_and_drop
+${caixaA}           css=#column-a  #id=column-a
+${caixaB}           css=#column-b  #id=column-b
+${caixa_esquerda}   css=#column-a > header
+${caixa_direita}    css=#column-b > header
 
 *** Test Cases ***
 Cenário: Trocar a caixa A com a B
@@ -22,7 +21,7 @@ Cenário: Trocar a caixa A com a B
 
 *** Keywords ***
 Abrir a página
-    Open browser  ${url}  ${browser}
+    Open browser  ${url}${page}  ${browser}
 
 Verificar a ordem A, B
     Element text should be  ${caixaA}  A
